@@ -2,6 +2,8 @@ import yfinance as stonk
 import numpy as numpy
 import pandas
 import matplotlib.pyplot as plt
+from threading import Thread
+from multiprocessing import Process
 
 
 class inputstock:
@@ -160,8 +162,214 @@ list = ["AAPL","TSLA","CRM","GE","F","GOOGL","FB","SNAP","AMD","NVDA","ABT","MMM
 ##print(list)
 ratio_list = []
 for i in range(len(dataframe)):
-        list.append(dataframe[i])
+        if dataframe[i] not in list:
+                list.append(dataframe[i])
+
+
+
+
+ranges = []
+a = int(len(list)/15)
+for i in range(16):
+        ranges.append(i*a)
+
+print(ranges)
         
+Batches = []
+
+def Create_Batches():
+        steps = 1
+        while(steps<15):
+                BatchCreate = []
+                for i in range(ranges[steps-1],ranges[steps]):
+                        BatchCreate.append(list[i])
+                
+                Batches.append(BatchCreate)
+                steps +=1
+                
+Create_Batches() ##Creates our Batches
+
+
+
+        
+
+def First_Batch():
+        for i in range(Batches[0]):
+                try:
+                        stocksymbol = inputstock(str(Batches[0][i]))
+                        g = stocksymbol.show()
+                        ratio_list.append(g)
+                except IndexError:
+                        continue
+
+
+def Second_Batch():
+        for i in range(len(Batches[11])):
+                try:
+                        stocksymbol = inputstock(str(Batches[1][i]))
+                        g = stocksymbol.show()
+                        ratio_list.append(g)
+                except IndexError:
+                        continue
+
+
+
+def Third_Batch():
+        for i in range(len(Batches[11])):
+                try:
+                        stocksymbol = inputstock(str(Batches[2][i]))
+                        g = stocksymbol.show()
+                        ratio_list.append(g)
+                except IndexError:
+                        continue
+
+
+
+def Fourth_Batch():
+        for i in range(len(Batches[11])):
+                try:
+                        stocksymbol = inputstock(str(Batches[3][i]))
+                        g = stocksymbol.show()
+                        ratio_list.append(g)
+                except IndexError:
+                        continue
+
+
+def Fifth_Batch():
+        for i in range(len(Batches[11])):
+                try:
+                        stocksymbol = inputstock(str(Batches[4][i]))
+                        g = stocksymbol.show()
+                        ratio_list.append(g)
+                except IndexError:
+                        continue
+
+
+
+def Sixth_Batch():
+        for i in range(len(Batches[11])):
+                try:
+                        stocksymbol = inputstock(str(Batches[5][i]))
+                        g = stocksymbol.show()
+                        ratio_list.append(g)
+                except IndexError:
+                        continue
+
+
+
+def Seventh_Batch():
+        for i in range(len(Batches[11])):
+                try:
+                        stocksymbol = inputstock(str(Batches[6][i]))
+                        g = stocksymbol.show()
+                        ratio_list.append(g)
+                except IndexError:
+                        continue
+
+
+
+
+def Eieght_Batch():
+        for i in range(len(Batches[7])):
+                try:
+                        stocksymbol = inputstock(str(Batches[7][i]))
+                        g = stocksymbol.show()
+                        ratio_list.append(g)
+                except IndexError:
+                        continue
+                except TypeError:
+                        continue
+
+
+def Ninth_Batch():
+        for i in range(len(Batches[8])):
+                try:
+                        stocksymbol = inputstock(str(Batches[8][i]))
+                        g = stocksymbol.show()
+                        ratio_list.append(g)
+                except IndexError:
+                        continue
+                except TypeError:
+                        continue
+
+
+
+def Tenth_Batch():
+        for i in range(len(Batches[9])):
+                try:
+                        stocksymbol = inputstock(str(Batches[9][i]))
+                        g = stocksymbol.show()
+                        ratio_list.append(g)
+                except IndexError:
+                        continue
+                except TypeError:
+                        continue
+
+
+def Eleventh_Batch():
+        for i in range(len(Batches[10])):
+                try:
+                        stocksymbol = inputstock(str(Batches[10][i]))
+                        g = stocksymbol.show()
+                        ratio_list.append(g)
+                except IndexError:
+                        continue
+                except TypeError:
+                        continue
+
+
+def Twelfth_Batch():
+        for i in range(len(Batches[11])):
+                try:
+                        stocksymbol = inputstock(str(Batches[11][i]))
+                        g = stocksymbol.show()
+                        ratio_list.append(g)
+                except IndexError:
+                        continue
+                except TypeError:
+                        continue
+
+
+
+def Thirtheenth_Batch():
+        for i in range(len(Batches[12])):
+                try:
+                        stocksymbol = inputstock(str(Batches[12][i]))
+                        g = stocksymbol.show()
+                        ratio_list.append(g)
+                except IndexError:
+                        continue
+                except TypeError:
+                        continue
+
+
+
+def Fourtheenth_Batch():
+        for i in range(len(Batches[13])):
+                try:
+                        stocksymbol = inputstock(str(Batches[13][i]))
+                        g = stocksymbol.show()
+                        ratio_list.append(g)
+                except IndexError:
+                        continue
+                except TypeError:
+                        continue
+
+
+def Fiftheenth_Batch():
+        for i in range(len(Batches[14])):
+                try:
+                        stocksymbol = inputstock(str(Batches[14][i]))
+                        g = stocksymbol.show()
+                        ratio_list.append(g)
+                except IndexError:
+                        continue
+                except TypeError:
+                        continue
+
+len(Batches[13])
+
+'''    
 for i in range(len(list)):
         try:
                 stocksymbol = inputstock(list[i])
@@ -171,13 +379,38 @@ for i in range(len(list)):
                 continue
 
 
+
+'''
+
+
+'''
 x = ratio_list
 num_bins = 5
 n, bins, patches = plt.hist(x, num_bins, facecolor='blue', alpha=0.5)
 plt.show()
-
+'''
 
 
 #print(g)
 
+'''
+
+if __name__ == '__main__':
+        Process(target=First_Batch).start()
+        Process(target=Second_Batch).start()
+        Process(target=Third_Batch).start()
+        Process(target=Fourth_Batch).start()
+        Process(target=Fifth_Batch).start()
+        Process(target=Sixth_Batch).start()
+        Process(target=Seventh_Batch).start()
+        Process(target=Eieght_Batch).start()
+        Process(target=Ninth_Batch).start()
+        Process(target=Tenth_Batch).start()
+        Process(target=Eleventh_Batch).start()
+        Process(target=Twelfth_Batch).start()
+        Process(target=Thirtheenth_Batch).start()
+        Process(target=Fourtheenth_Batch).start()
+        Process(target=Fiftheenth_Batch).start()
+
+'''
 
