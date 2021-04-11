@@ -197,7 +197,7 @@ Create_Batches() ##Creates our Batches
         
 
 def First_Batch():
-        for i in range(len(Batches[0])):
+        for i in range(4):
                 try:
                         stocksymbol = inputstock(str(Batches[0][i]))
                         g = stocksymbol.show()
@@ -427,6 +427,7 @@ Process(target=Fiftheenth_Batch).start()
 
 
 First_Batch()
+'''
 Second_Batch()
 Third_Batch()
 Fourth_Batch()
@@ -441,7 +442,7 @@ Twelfth_Batch()
 Thirtheenth_Batch()
 Fourtheenth_Batch()
 ##Fiftheenth_Batch()
-
+'''
 
 
 
